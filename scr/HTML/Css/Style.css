@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        font-family: "Sour Gummy", serif;
+}
+
+:root {
+        --top-bg-color-brigth-pink-red: #FFC0CB;
+        --top-bg-color-pink-rot: #EDACB7;
+        --black-color-: #000000;
+
+        --bg-color: #1f242d;
+        --second-bg-color: #323946;
+        
+
+        --main-color: #8443b0;
+        
+        --white-color: #fff;
+        --disable-color: #fff3;
+}
+
+html {
+        font-size: 62.5%;
+}
+
+body {
+        color: var(--white-color);
+}
+
+header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 3rem;
+        background: var(--top-bg-color-brigth-pink-red);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+}
+
+.logo {
+        font-size: 4rem;
+        color: var(--white-color);
+        font-weight: 700;
+        /* margin-top: 20px; */ /* Verschiebt das Logo nach unten */
+        margin-left: 400px;  /* Verschiebt das Logo nach rechts */
+        /* padding: 10px; */ /* Fügt Innenabstand hinzu */
+        /* position: relative; */
+        /* top: 10px; */ /* Verschiebt das Logo nach unten */
+        /* left: 10px; */ /* Verschiebt das Logo nach rechts */
+        /* transform: translate(10px, 20px); */ /* Verschiebt das Logo um 10px nach rechts und 20px nach unten */
+}
+
+nav {
+        margin-right: 300px;
+}
+
+nav a {
+        font-size: 2.5rem;
+        color: var(--black-color-);
+        font-weight: 500;
+        margin-left: 3.5rem;
+        transition: .5s;
+}
+
+nav a:hover,
+nav a.active{
+        color: var(--white-color);
+}
+
+#menu-icon {
+        font-size: 4rem;
+        color: var(--black-color-);
+        display: none;
+}
+      
