@@ -134,18 +134,43 @@ section{
         line-height: 1.8;
 }
 
+.home-image {
+        position: relative;
+        z-index: 1;
+}
+
 .home-image img{
         width: clamp(200px, 22vw, 500px);
         border-radius: 50%;
         box-shadow: 0 0 25px var(--white-color);
         transition: 0.9s ease-in-out;
-        position: solid;
+        position: relativ;
+        z-index: 2;
 }
 
 .home-image img:hover{
         box-shadow: 0 0 25px var(--white-color),
         0 0 50px var(--white-color),
         0 0 100px var(--white-color);
+}
+
+/* Portal */
+.portal {
+        position: absolute;
+        top: 50%;
+        left: 98%;
+        transform: translate(-50%, -50%);
+        width: 93%;
+        height: auto;
+        display: flex;
+        z-index: -1;
+        mix-blend-mode: screen;
+}
+
+.portal video {
+        width: 60%;
+        height: auto;
+        border: 50%;
 }
 
 /* Biografi */
