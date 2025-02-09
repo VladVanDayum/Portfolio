@@ -26,7 +26,6 @@
             <path class="line" d="M7 16 27 16"></path>
         </svg>
     </label>
-
       <nav class="nav">
         <a href="#home">Home</a>
         <a href="#biografi">Biografi</a>
@@ -34,8 +33,9 @@
         <a href="#kontakt">Kontakt</a>
         <a href="#"></a>
       </nav>
-
-      <button class="button" id="contact-btn">Kontakt aufnehmen</button>
+      <div class="btn-group">
+        <a href="#kontakt" class="btn">Kontakt aufnehmen</a>
+      </div>
     </header>
 
     <div class="portal">
@@ -71,7 +71,7 @@
           </a>
         </div>
         <div class="btn-group">
-          <a href="#contact" class="btn">Kontakt aufnehmen</a>
+          <a href="#kontakt" class="btn">Kontakt aufnehmen</a>
         </div>
       </div>
       <div class="home-image">
@@ -102,78 +102,28 @@
 
     <section class="projekte" id="projekte">
       <h2 class="ueberschrift">Projekte</h2>
-
-      <div class="projekt-box">
-        <div class="projekt-karten">
-          <img src="Bilder/ER.jpeg" alt="" />
-
-          <h3>Projektname</h3>
-          <p>Information</p>
-          <div class="btn">Projekt ansehen</div>
-        </div>
-
-        <div class="projekt-karten">
-          <img src="Bilder/ER.jpeg" alt="" />
-
-          <h3>Projektname</h3>
-          <p>Information</p>
-          <div class="btn">Projekt ansehen</div>
-        </div>
-
-        <div class="projekt-karten">
-          <img src="Bilder/ER.jpeg" alt="" />
-
-          <h3>Projektname</h3>
-          <p>Information</p>
-          <div class="btn">Projekt ansehen</div>
-        </div>
-
-        <div class="projekt-karten">
-          <img src="Bilder/ER.jpeg" alt="" />
-
-          <h3>Projektname</h3>
-          <p>Information</p>
-          <div class="btn">Projekt ansehen</div>
-        </div>
-
-        <div class="projekt-karten">
-          <img src="Bilder/ER.jpeg" alt="" />
-
-          <h3>Projektname</h3>
-          <p>Information</p>
-          <div class="btn">Projekt ansehen</div>
-        </div>
-
-        <div class="projekt-karten">
-          <img src="Bilder/ER.jpeg" alt="" />
-
-          <h3>Projektname</h3>
-          <p>Information</p>
-          <div class="btn">Projekt ansehen</div>
-        </div>
+      <div class="projekt-box" id = "projekt-box">
+        
       </div>
     </section>
 
     <section class="kontakt" id="kontakt">
       <h2 class="heading">Kontaktiere <span>mich</span></h2>
-
-      <form action="#">
-
+      <form id = "contact-form" action="#">
         <div class="input-group">
           <div class="input-box">
-            <input type="text" placeholder="Vor-/Nachname" />
-            <input type="E-mail" placeholder="E-mail" />
-          </div>
-
-          <div class="input-box">
-            <input type="Nummer" placeholder="Telefonnummer" />
-            <input type="text" placeholder="Grund" />
-          </div>
+            <input type="text" id="name" placeholder="Vor-/Nachname" required />
+            <input type="email" id="email" placeholder="E-mail" required />
         </div>
-
-        <div class="input-group2">
-          <textarea name="" id="" placeholder="Deine Nachricht" cols="30" rows="10"></textarea>
-          <div type="Senden" class="btn"/> Senden </div>
+        <div class="input-box">
+          <input type="tel" id="telefonnummer" placeholder="Telefonnummer" required />
+          <input type="text" id="grund" placeholder="Grund" required />
+      </div>
+    </div>
+    <div class="input-group2">
+        <textarea id="nachricht" placeholder="Deine Nachricht" cols="30" rows="10" required></textarea>
+        <button type="submit" class="btn">Senden</button>
+    </div>
 
       </form>
     </section>
@@ -220,5 +170,62 @@
 
     <!-- custom js -->
     <script src="JavaScript/Script.js"></script>
+    <script>
+      
+      async function loadProjects() {
+            const response = await fetch('/portfolio_db');
+            const projects = await response.json();
+            const projektBox = document.getElementById('projekt-box');
+
+            projects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.classList.add('projekt-karten');
+                projectCard.innerHTML = `
+                    <h2 alt="${project.titel}" />
+                    <h3>${project.titel}</h3>
+                    <p>${project.beschreibung}</p>
+                    <div class="btn">Projekt ansehen</div>
+                `;
+                projektBox.appendChild(projectCard);
+            });
+        }
+        
+        async function submitContactForm(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const telefonnummer = document.getElementById('telefonnummer').value;
+            const grund = document.getElementById('grund').value;
+            const nachricht = document.getElementById('nachricht').value;
+
+            const telefonnummerPattern = /^[0-9]+$/;
+              if (!telefonnummerPattern.test(telefonnummer)) {
+                alert('Fehler: Telefonnummer darf nur Zahlen enthalten.');
+                return;
+              }
+            
+            const response = await fetch('/kontakte', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email, name, telefonnummer, grund, nachricht})
+            });
+
+            if (response.ok) {
+                alert('Nachricht erfolgreich gesendet!');
+                document.getElementById('contact-form').reset();
+            } else {
+                alert('Fehler beim Senden der Nachricht.');
+            }
+        }
+        
+        window.onload = loadProjects;
+
+        document.getElementById('contact-form').addEventListener('submit', submitContactForm);
+        
+        
+    </script>
   </body>
 </html>
