@@ -24,8 +24,8 @@ export async function getOneProjekt(id) {
     return rows[0]
 }
 
-export async function createProject(titel, beschreibung, technologien) {
-    await pool.query("INSERT INTO projekte (titel, beschreibung, technologien) VALUES(?, ?, ?)", [titel, beschreibung, technologien])
+export async function createProject(titel, beschreibung, technologien, bild) {
+    await pool.query("INSERT INTO projekte (titel, beschreibung, technologien, bild) VALUES(?, ?, ?, ?)", [titel, beschreibung, technologien, bild]);
 }
 
 export async function removeProject(id) {
