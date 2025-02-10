@@ -229,7 +229,7 @@ section{
 .projekt-box {
         margin-top: 2rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(900px, 1fr));
         place-items: center;
         gap: 3rem;
         row-gap: 5rem;
@@ -253,7 +253,7 @@ section{
         margin-top: 5rem;
         perspective: 1000px;
         width: 80%;
-        height: 400px;
+        height: 550px;
     }
 
 .projekt-karten-inner {
@@ -275,6 +275,7 @@ section{
         height: 100%;
         backface-visibility: hidden;
         border-radius: 3rem;
+        overflow: hidden;
     }
     
 .projekt-karten-front {
@@ -302,7 +303,7 @@ section{
 }
 
 .projekt-karten img {
-        max-width: clamp(100px, 11vw, 200px);
+        max-width: clamp(200px, 33vw, 550px);
         border-radius: 2rem;
         object-fit: cover;
 }
@@ -310,13 +311,27 @@ section{
 .projekt-karten h3 {
         font-size: clamp(20px, 4vw, 60px);
 }
-    
+
 .projekt-karten p {
         font-size: clamp(20px, 1.2vw, 60px);
 }
 
 .projekt-karten .btn:hover {
         border-color: var(--white-color);  
+}
+
+.technologien {
+        margin-top: auto;
+        text-align: center;
+}
+
+.technologien h4 {
+        font-size: clamp(20px, 1.2vw, 60px);
+        margin-bottom: 0.5rem;
+}
+
+.technologien p {
+        font-size: clamp(16px, 1vw, 24px);
 }
 
 /* Kontakt */
@@ -657,8 +672,8 @@ section{
                 }
 
                 .portal {
-                        top: 36%;
-                        left: 47%;
+                        top: 38%;
+                        left: 49%;
                         transform: translate(-50%, -50%);
                         width: 100%;
                 }

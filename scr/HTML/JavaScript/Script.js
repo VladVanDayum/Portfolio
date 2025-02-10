@@ -22,6 +22,10 @@ async function loadProjects() {
                 </div>
                 <div class="projekt-karten-back">
                     <p>${project.beschreibung}</p>
+                    <div class="technologien">
+                        <h4>Technologien:</h4>
+                        <p>${project.technologien}</p>
+                    </div>
                 </div>
             </div>
         `;
