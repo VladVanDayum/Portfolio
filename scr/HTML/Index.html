@@ -19,7 +19,7 @@
     <header class="header">
       <a href="#" class="logo"> Wladislaw <span> Stepanenko </span></a>
 
-      <i class= "bx bx-menu" id = "menu-icon"></i>
+      <i class="bx bx-menu" id="menu-icon"></i>
 
       <nav class="nav">
         <a href="#home">Home</a>
@@ -33,14 +33,16 @@
       </div>
     </header>
 
-    <div class="portal">
-      <video autoplay loop muted plays-inline src="Video/Rick And Morty Portal effect.mp4"></video>
-    </div>
-
-    <section class="home" id="home">
+    <section class="home">
       <div class="home-content">
-        <h1>Ich bin <span>Wladi</span></h1>
-        <h3>Ich bin ein <span>Student</span></h3>
+        <h1>Ich bin Wladi</h1>
+        <h2>
+          Ich bin ein
+          <span style="--i: 4" data-text="Sportler">Sportler</span>
+          <span style="--i: 3" data-text="Student">Student</span>
+          <span style="--i: 2" data-text="Coder">Coder</span>
+          <span style="--i: 1" data-text="Sportler">Sportler</span>
+        </h2>
         <p>
           Die Gruppe, erschöpft vom letzten Kampf, teilte sich. Während einige
           sich in den Wald zurückzogen, um zu rasten, plünderten Jesper und
@@ -61,7 +63,9 @@
             <i class="bx bxl-discord" id="disc"></i>
           </a>
 
-          <a href="https://www.instagram.com/vlad_van_dayum?igsh=MWFsZjYxNDdzMng0Zg%3D%3D&utm_source=qr">
+          <a
+            href="https://www.instagram.com/vlad_van_dayum?igsh=MWFsZjYxNDdzMng0Zg%3D%3D&utm_source=qr"
+          >
             <i class="bx bxl-instagram" id="insta"></i>
           </a>
         </div>
@@ -77,6 +81,15 @@
     <section class="biografi" id="biografi">
       <div class="biografi-img">
         <img src="Bilder/Jotaro.jpg" alt="" />
+      </div>
+      <div class="portal">
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+          src="Video/Rick And Morty Portal effect.mp4"
+        ></video>
       </div>
 
       <div class="biografi-content">
@@ -97,29 +110,37 @@
 
     <section class="projekte" id="projekte">
       <h2 class="ueberschrift">Projekte</h2>
-      <div class="projekt-box" id = "projekt-box">
-        
-      </div>
+      <div class="projekt-box" id="projekt-box"></div>
     </section>
 
     <section class="kontakt" id="kontakt">
       <h2 class="heading">Kontaktiere <span>mich</span></h2>
-      <form id = "contact-form" action="#">
+      <form id="contact-form" action="#">
         <div class="input-group">
           <div class="input-box">
             <input type="text" id="name" placeholder="Vor-/Nachname" required />
             <input type="email" id="email" placeholder="E-mail" required />
+          </div>
+          <div class="input-box">
+            <input
+              type="tel"
+              id="telefonnummer"
+              placeholder="Telefonnummer"
+              required
+            />
+            <input type="text" id="grund" placeholder="Grund" required />
+          </div>
         </div>
-        <div class="input-box">
-          <input type="tel" id="telefonnummer" placeholder="Telefonnummer" required />
-          <input type="text" id="grund" placeholder="Grund" required />
-      </div>
-    </div>
-    <div class="input-group2">
-        <textarea id="nachricht" placeholder="Deine Nachricht" cols="30" rows="10" required></textarea>
-        <button type="submit" class="btn">Senden</button>
-    </div>
-
+        <div class="input-group2">
+          <textarea
+            id="nachricht"
+            placeholder="Deine Nachricht"
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+          <button type="submit" class="btn">Senden</button>
+        </div>
       </form>
     </section>
 
@@ -133,13 +154,15 @@
           <i class="bx bxl-discord" id="disc"></i>
         </a>
 
-        <a href="https://www.instagram.com/vlad_van_dayum?igsh=MWFsZjYxNDdzMng0Zg%3D%3D&utm_source=qr">
+        <a
+          href="https://www.instagram.com/vlad_van_dayum?igsh=MWFsZjYxNDdzMng0Zg%3D%3D&utm_source=qr"
+        >
           <i class="bx bxl-instagram" id="insta"></i>
         </a>
       </div>
 
       <ul class="list">
-          <li>
+        <li>
           <a href="#biografi">Biografi</a>
         </li>
 
@@ -155,7 +178,6 @@
           &copy; 2025 Wladislaw Stepanenko
           <span>Alle Rechte vorbehalten</span>
         </p>
-
       </ul>
     </footer>
 
