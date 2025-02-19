@@ -38,22 +38,15 @@ async function submitContactForm(event) {
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
-    const telefonnummer = document.getElementById('telefonnummer').value;
     const grund = document.getElementById('grund').value;
     const nachricht = document.getElementById('nachricht').value;
-
-    const telefonnummerPattern = /^[0-9]+$/;
-      if (!telefonnummerPattern.test(telefonnummer)) {
-        alert('Fehler: Telefonnummer darf nur Zahlen enthalten.');
-        return;
-      }
     
     const response = await fetch('/kontakte', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({email, name, telefonnummer, grund, nachricht})
+        body: JSON.stringify({email, name, grund, nachricht})
     });
 
     if (response.ok) {
@@ -64,6 +57,42 @@ async function submitContactForm(event) {
     }
 }
 
-window.onload = loadProjects;
+function typeEffect() {
+    const typedTextSpan = document.getElementById('typed-text');
+    const texts = ["Student", "Coder", "Sportler"];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentText = texts[textIndex];
+        
+        if (isDeleting) {
+            typedTextSpan.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typedTextSpan.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(type, 2000); // Wartezeit bevor das Löschen beginnt
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(type, 500); // Wartezeit bevor das nächste Wort beginnt
+        } else {
+            setTimeout(type, isDeleting ? 100 : 200); // Geschwindigkeit des Tippens/Löschens
+        }
+    }
+
+    type();
+}
+
+window.onload = () => {
+    loadProjects();
+    typeEffect();
+};
 
 document.getElementById('contact-form').addEventListener('submit', submitContactForm);

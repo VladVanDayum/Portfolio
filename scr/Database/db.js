@@ -62,8 +62,8 @@ export async function getOneContact(email) {
     return rows[0]
 }
 
-export async function createContact(email, name, telefonnummer, grund, nachricht) {
-    await pool.query("INSERT INTO kontakte (email, name, telefonnummer, grund, nachricht) VALUES(?,?,?,?,?)", [email, name, telefonnummer, grund, nachricht])
+export async function createContact(email, name, grund, nachricht) {
+    await pool.query("INSERT INTO kontakte (email, name, grund, nachricht) VALUES (?, ?, ?, ?)", [email, name, grund, nachricht]);
 }
 
 export async function removeContact(email) {

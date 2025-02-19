@@ -24,9 +24,9 @@ app.get("/portfolio_db/:id", async (req, res) => {
 });
 
 app.post("/kontakte", async (req, res) => {
-    const { email, name, telefonnummer, grund, nachricht } = req.body;
+    const { email, name, grund, nachricht } = req.body;
     try {
-        const contact = await createContact(email, name, telefonnummer, grund, nachricht);
+        const contact = await createContact(email, name, grund, nachricht);
         res.status(201).send(contact);
     } catch (err) {
         res.status(500).json({ error: 'Fehler beim Erstellen des Kontakts' });
