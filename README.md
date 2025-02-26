@@ -72,8 +72,6 @@ Node.js und Express verwalten die Datenbankverbindung und die Bereitstellung der
 
 Geplante Erweiterungen umfassen:
 
-Admin-Bereich zur Verwaltung der Projekte
-
 Verbesserte UI mit Animationen
 
 Responsive Design für mobile Endgeräte
