@@ -1,5 +1,3 @@
-Portfolio Website
-
 💻 Technologien
 
 Dieses Projekt verwendet folgende Technologien:
