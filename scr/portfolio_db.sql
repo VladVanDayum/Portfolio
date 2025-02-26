@@ -1,0 +1,1 @@
+SELECT * FROM portfolio_db.projekte;
