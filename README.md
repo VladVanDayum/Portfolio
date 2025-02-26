@@ -79,7 +79,3 @@ Admin-Bereich zur Verwaltung der Projekte
 Verbesserte UI mit Animationen
 
 Responsive Design für mobile Endgeräte
-
-👤 Autor
-
-Erstellt von VladVanDayum
