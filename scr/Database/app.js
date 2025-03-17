@@ -1,12 +1,21 @@
 import express from 'express';
 import { getAllProjekts, getOneProjekt, createContact } from './db.js';
 import os from 'os';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 80;
 
 app.use(express.json());
 app.use(express.static('C:\\Users\\Vreyn\\Documents\\GitHub\\Portfolio\\scr\\HTML'));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join('C:\\Users\\Vreyn\\Documents\\GitHub\\Portfolio\\scr\\HTML', 'Index.html'));
+});
 
 app.get("/portfolio_db", async (req, res) => {
     try {
@@ -42,10 +51,8 @@ app.listen(port, '0.0.0.0', () => {
     const interfaces = os.networkInterfaces();
     let serverAddressFound = false;
     
-    // Durchsuche alle Netzwerkschnittstellen
     Object.keys(interfaces).forEach((ifaceName) => {
         interfaces[ifaceName].forEach((iface) => {
-            // Ignoriere interne Schnittstellen und IPv6
             if (iface.family === 'IPv4' && !iface.internal) {
                 console.log(`Server läuft auf http://${iface.address}:${port}`);
                 serverAddressFound = true;
