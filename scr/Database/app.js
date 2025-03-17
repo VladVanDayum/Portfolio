@@ -40,14 +40,25 @@ app.use((err, req, res, next) => {
 
 app.listen(port, '0.0.0.0', () => {
     const interfaces = os.networkInterfaces();
-    const ethernet2 = interfaces['Ethernet 2'];
-    if (ethernet2) {
-        for (const iface of ethernet2) {
+    let serverAddressFound = false;
+    
+    // Durchsuche alle Netzwerkschnittstellen
+    Object.keys(interfaces).forEach((ifaceName) => {
+        interfaces[ifaceName].forEach((iface) => {
+            // Ignoriere interne Schnittstellen und IPv6
             if (iface.family === 'IPv4' && !iface.internal) {
-                console.log(`Server is running on http://${iface.address}:${port}`);
+                console.log(`Server läuft auf http://${iface.address}:${port}`);
+                serverAddressFound = true;
             }
-        }
-    } else {
-        console.log('Ethernet 2 interface not found.');
+        });
+    });
+    
+    if (!serverAddressFound) {
+        console.log(`Server läuft auf http://localhost:${port}`);
     }
+    
+    console.log('Verfügbare Netzwerkschnittstellen:');
+    Object.keys(interfaces).forEach(name => {
+        console.log(` - ${name}`);
+    });
 });
