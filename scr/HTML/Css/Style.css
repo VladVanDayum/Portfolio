@@ -432,7 +432,7 @@ section {
 .end-background{
   position: absolute;
   width: 100%;
-  height: 120%;
+  height: 119%;
   mix-blend-mode: soft-light;
   overflow: hidden;
   top: 300%;
@@ -681,6 +681,8 @@ section {
   background-color: var(--top-bg-color-pink-rot);
 }
 
+
+
 @media screen and (max-width: 1885px) {
   #menu-icon {
     display: block;
@@ -699,55 +701,49 @@ section {
     display: none;
   }
 
-    .end-background {
-      width: 100%;
-      height: 100%;
-      top: 320%;
-      overflow: hidden;
-    }
-
-    .home-background-image {
-      width: 100%;
-      height: 102.7%;
-    }
-
+  
+  .home-background-image {
+    width: 100%;
+    height: 100%;
+  }
+  
   .nav a {
     display: block;
     font-size: 2rem;
     margin: 2rem 0;
     color: var(--black-color-);
   }
-
+  
   .nav.active {
     display: block;
   }
-
+  
   .btn-group {
     display: none;
   }
-
+  
   .home {
     flex-direction: column-reverse;
     margin: 5rem 0 2rem;
     gap: 5rem;
   }
-
+  
   .home-content {
     align-items: center;
     text-align: center;
   }
-
+  
   .home-image {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
+  
   .home-image img {
     width: clamp(100px, 28vw, 500px);
   }
-
+  
   .home-portal {
     top: 50%;
     left: 50%;
@@ -755,31 +751,37 @@ section {
     width: 100%;
     height: 100%;
   }
-
+  
   .home-portal video {
     width: clamp(300px, 90vw, 1500px);
   }
-
+  
   .biografi {
     flex-direction: column-reverse;
     text-align: center;
   }
-
+  
   .biografi h2 {
     text-align: center;
     margin: 2rem 0;
   }
-
+  
   .biografi-img img {
-    width: 40vw;
+    width: 28vw;
   }
-
+  
   .kontakt form {
     flex-direction: column;
   }
-
+  
   .projekt-karten {
     width: 80%;
     height: 430px;
+  }
+  
+  .end-background {
+    background-size: cover;
+    top: 305%;
+    overflow: hidden;
   }
 }
