@@ -10,37 +10,16 @@ MySQL – Datenbank zur Speicherung von Projekten und Kontaktanfragen
 
 🔧 Einrichtung
 
-1. Repository klonen
+1. Repository klonen oder herunterladen
 
 git clone https://github.com/VladVanDayum/portfolio.git
 cd portfolio
 
-2. Abhängigkeiten installieren
+2. Der Anleitung folgen
 
 "Installation von Software.pdf"
 
-3. .env Datei erstellen
-
-Eine .env-Datei muss manuell im Root-Verzeichnis erstellt und mit den folgenden Konfigurationsdaten gefüllt werden:
-
-DB_HOST=dein-datenbank-host
-DB_USER=dein-benutzername
-DB_PASSWORD=dein-passwort
-DB_NAME=portfolio_db
-
-Hinweis: Die .env-Datei speichert sensible Konfigurationsdaten wie Datenbank-Zugangsdaten, API-Schlüssel, Passwörter und Server-Einstellungen. Diese Datei sollte nicht mit in das Repository hochgeladen werden.
-
-4. Datenbank einrichten
-
-Die Datenbank muss mit der beiliegenden portfolio_db.sql Datei initialisiert werden:
-
-MySQL-Server starten.
-
-Die Datei portfolio_db.sql in MySQL importieren.
-
-Sicherstellen, dass die Datenbank-Verbindung korrekt ist.
-
-5. Server starten
+3. Server starten
 
 cd .\Portfolio\scr\Database\
 
@@ -64,7 +43,7 @@ Datenbank-Integration
 
 Die Projekte werden mit Titel, Beschreibung, verwendeten Technologien und Bildpfad in MySQL gespeichert und dynamisch auf der Seite dargestellt.
 
-Das Kontaktformular speichert Name, E-Mail, Grund und Nachricht in der Datenbank.
+Das Kontaktformular speichert Name, E-Mail, Grund, Nachricht und das Datum in der Datenbank.
 
 Node.js und Express verwalten die Datenbankverbindung und die Bereitstellung der Webseite.
 
